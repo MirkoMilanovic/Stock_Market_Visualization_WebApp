@@ -1,0 +1,27 @@
+<!--
+So here we need to put the placeholders for our plot.html:
+{{script1 | safe}}          - script1 from the safe method  (javascript code)
+{{div1 | safe}}             - div1 from the safe method     (html div code)
+
+From the chart's html page we go on inspect/View page source, there we copy the lines in the header where we have
+link for JAVASCRIPT (+CSS FOR OLDER VERSIONS), and change those links with a placeholders
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js"
+        integrity="sha384-T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM" crossorigin="anonymous"></script>
+-that link we change to a placeholder for JS: {{cdn_js | safe}}
+(WE DON"T HAVE A CSS LINK ANYMORE, but in previous bokeh version it was needed to be changed with: {{cdn_css | safe}})
+
+-->
+
+{%extends "layout.html"%}
+{%block content%}
+
+<script type="text/javascript" src={{cdn_js | safe}} integrity="sha384-T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM" crossorigin="anonymous"></script>
+
+<div>
+    <h1>Plot page</h1>
+    <p>This is also a test website</p>
+</div>
+{{script1 | safe}}
+{{div1 | safe}}
+
+{%endblock%}
